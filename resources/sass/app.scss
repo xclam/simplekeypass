@@ -1,0 +1,23 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.card-header, .card-footer, .card-body {
+    padding: 0.25rem 0.5rem;
+}
+.card-body p{
+	margin-bottom: 0.25rem;
+}
+
+.card{
+	margin-bottom:1rem;
+}
+
+.clickable{
+	cursor:pointer;
+}
