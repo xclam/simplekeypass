@@ -17,7 +17,9 @@ class CreatePasswordsTable extends Migration
             $table->bigIncrements('id');
 			$table->string('name');
 			$table->string('login');
-            $table->string('password');
+            $table->longText('password');
+			$table->string('url')->nullable();
+			$table->text('notes')->nullable();
 			
 			$table->unsignedBigInteger('create_by')->nullable();
 			$table->unsignedBigInteger('update_by')->nullable();

@@ -15,7 +15,7 @@ class Password extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'login', 'password', 'create_by', 'create_at', 'update_by', 'update_at',
+        'name', 'login', 'password', 'notes', 'url', 'create_by', 'create_at', 'update_by', 'update_at',
     ];
 
     /**

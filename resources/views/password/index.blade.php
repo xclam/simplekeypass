@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
 
-	<div class="d-flex ">
+	<div class="header-body"><h1>{{__('Passwords')}}</h1></div>
+	
+
+	<div class="d-flex my-3">
 		
 		<div class="flex-grow-1">@include('password.form')</div>
 		

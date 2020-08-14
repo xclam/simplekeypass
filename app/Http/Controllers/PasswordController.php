@@ -30,6 +30,8 @@ class PasswordController extends Controller
 			"name" => $request->input('name'),
 			"login" => $request->input('login'), 
 			"password" => Crypt::encryptString($request->input('password')),
+			"notes" => $request->input('note'), 
+			"url" => $request->input('url'), 
 			"create_by" => Auth::id(),
 		]);
 		

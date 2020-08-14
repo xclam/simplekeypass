@@ -1,9 +1,10 @@
-
-
 <?php $__env->startSection('content'); ?>
-<div class="container">
+<div class="container-fluid">
 
-	<div class="d-flex ">
+	<div class="header-body"><h1><?php echo e(__('Passwords')); ?></h1></div>
+	
+
+	<div class="d-flex my-3">
 		
 		<div class="flex-grow-1"><?php echo $__env->make('password.form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></div>
 		
