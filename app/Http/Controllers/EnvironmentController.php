@@ -15,12 +15,9 @@ class EnvironmentController extends Controller
 		return view('environment.index', ['environments' => $env->all()]);
 	}
 	
-	public function add()
+	public function create()
 	{
-		$env = new Environment();
-		$pass = new Password();
-		$user = Auth::user();
-		return view('environment.view', ['environment' => $env, 'form_action' => '/environment/save', 'passwords' => $pass->authorizedPassword($user),]);
+		return view('environment.create', ['passwords' => Password::authorizedPassword(Auth::user()),]);
 	}
 	
 	public function view(Environment $environment)

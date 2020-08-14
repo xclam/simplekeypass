@@ -1,25 +1,57 @@
-
-
 <?php $__env->startSection('content'); ?>
-<div class="container">
+<div class="container-fluid">
     
-	Owner : <?php echo e($password->owner->gaia); ?> - <?php echo e($password->owner->name); ?>
-
-	<form class="inline-form" method="post" action="/password/<?php echo e($password->id); ?>/save">
+	<div class="header-body"><h1><?php echo e(__('Modify password')); ?></h1></div>
+	
+	<form class="form" method="post" action="<?php echo e(route('password.save', $password->id)); ?>">
 		<?php echo csrf_field(); ?>
 		<?php echo method_field('PATCH'); ?>
 		
-		<label for="name">Name :</label>
-		<input type="text" id="name" name="name" class="" value="<?php echo e($password->name); ?>" <?= (!$password->is_owner()) ? "disabled":"" ?> />
+		<div class="form-row">
+			<div class="form-group col">
+				<b>Owner</b> 
+				<span class="ml-1"><?php echo e($password->owner->code); ?> - <?php echo e($password->owner->name); ?></span>
+			</div>
+		</div>
 		
-		<label for="login">Login :</label>
-		<input type="text" id="login" name="login" class="" value="<?php echo e($password->login); ?>" <?= (!$password->is_owner()) ? "disabled":"" ?>/>
+		<div class="form-row">
+			<div class="form-group col">
+				<label for="name">Name</label>
+				<input type="text" id="name" name="name" class="form-control" value="<?php echo e($password->name); ?>" <?= (!$password->is_owner()) ? "disabled":"" ?> />
+			</div>
+			
+			<div class="form-group col">
+				<label for="login">Login</label>
+				<input type="text" id="login" name="login" class="form-control" value="<?php echo e($password->login); ?>" <?= (!$password->is_owner()) ? "disabled":"" ?>/>
+			</div>
+			
+			<div class="form-group col">
+				<label for="password">Password</label>
+				<input type="text" id="password" name="password" class="form-control" value="<?php echo e(Illuminate\Support\Facades\Crypt::decryptString($password->password)); ?>" <?= (!$password->is_owner()) ? "disabled":"" ?>/>
+			</div>
+		</div>
 		
-		<label for="password">Password :</label>
-		<input type="text" id="password" name="password" class="" value="<?php echo e(Illuminate\Support\Facades\Crypt::decryptString($password->password)); ?>" <?= (!$password->is_owner()) ? "disabled":"" ?>/>
-
+		<div class="form-row">
+			<div class="form-group col">
+				<label for="notes"><?php echo e(__('Notes')); ?></label>
+				<input type="text" id="notes" name="notes" class="form-control" value="<?php echo e($password->notes); ?>" <?= (!$password->is_owner()) ? "disabled":"" ?> />
+			</div>
+			
+			<div class="form-group col">
+				<label for="url"><?php echo e(__('URL')); ?></label>
+				<input type="text" id="url" name="url" class="form-control" value="<?php echo e($password->url); ?>" <?= (!$password->is_owner()) ? "disabled":"" ?>/>
+			</div>
+		</div>
+		
+		<div class="form-row">
+			<div class="form-group col">
+				<label for="tags"><?php echo e(__('Tags')); ?></label>
+				<input type="text" id="tags" name="tags" class="form-control" value="<?php echo e($password->tags); ?>" <?= (!$password->is_owner()) ? "disabled":"" ?> />
+			</div>
+		</div>
+		
 		<?php if($password->is_owner()): ?>
-		<div>
+		<div class="mt-3">
 			<h3>Partager avec :</h3>
 			<label id="share-with-all">Tout cocher</label> / <label id="share-with-nobody">Tout décocher</label>
 			<table class="table table-sm" id="share-with">

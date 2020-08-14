@@ -1,10 +1,10 @@
-
-
 <?php $__env->startSection('content'); ?>
-<div class="container">
-
+<div class="container-fluid">
+    
+	<div class="header-body"><h1><?php echo e(__('Environments')); ?></h1></div>
+	
 	<nav class="navbar">
-		<a href="/environment/add" class="btn btn-primary">Ajouter</a>
+		<a href="/environment" class="btn btn-primary">Ajouter</a>
 	</nav>
 	
 	<table class="table table-sm table-hover table-light">

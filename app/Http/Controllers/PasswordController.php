@@ -53,12 +53,13 @@ class PasswordController extends Controller
 		$password->name = $request->input('name');
 		$password->login = $request->input('login');
 		$password->password = Crypt::encryptString($request->input('password'));
+		$password->notes = $request->input('notes');
+		$password->url = $request->input('url');
 		$password->save();
 		
 		$password->shared()->sync($request->input('users'));
 		
 		return redirect()->route('password.view', ['password' => $password])->withSuccess(__('Password updated'));
-		// return view('password.view', ['password' => $password]);
 	}
 	
 	public function delete(Password $password)

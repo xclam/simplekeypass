@@ -1,26 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     
-	<form class="inline-form" action="{{$form_action}}" method="post">
-		@csrf
-		
-		<?php if(isset($environment->id)): ?>
-			@method('PATCH')
-		<?php endif; ?>
-		
-		<label for="name">Name</label>
-		<input type="text" id="name" name="name" class="" value="{{$environment->name}}"/>
+	<div class="header-body"><h1>{{__('Modify environment')}}</h1></div>
 	
-		<label for="type">Type</label>
-		<select id="type" name="type" class="">
-			<option value="app" <?= ($environment->type == "app") ? "selected":"" ?>>Application</option>
-			<option value="bdd" <?= ($environment->type == "bdd") ? "selected":"" ?>>Base de données</option>
-			<option value="srv" <?= ($environment->type == "srv") ? "selected":"" ?>>Serveur</option>
-			<option value="others" <?= ($environment->type == "others") ? "selected":"" ?>>Autres</option>
-		</select>
-
+	<form action="{{route('environment.save', $environment)}}" method="post">
+		@csrf
+		@method('PATCH')
+		
+		<div class="form-row">
+		
+			<div class="form-group col">
+				<label for="name">Name</label>
+				<input type="text" id="name" name="name" class="form-control" value="{{$environment->name}}"/>
+			</div>
+			
+			<div class="form-group col">
+				<label for="type">Type</label>
+				<select id="type" name="type" class="form-control">
+					<option value="app" <?= ($environment->type == "app") ? "selected":"" ?>>Application</option>
+					<option value="bdd" <?= ($environment->type == "bdd") ? "selected":"" ?>>Base de données</option>
+					<option value="srv" <?= ($environment->type == "srv") ? "selected":"" ?>>Serveur</option>
+					<option value="pc" <?= ($environment->type == "pc") ? "selected":"" ?>>Computer</option>
+					<option value="others" <?= ($environment->type == "others") ? "selected":"" ?>>Autres</option>
+				</select>
+			</div>
+			
+		</div>
 		
 		<div>
 			<h3>Mots de passes associés</h3>
@@ -46,11 +53,11 @@
 	</form>
 	
 	<p>
-	<form class="inline-form" action="/environment/{{$environment->id}}" method="post">
-		@csrf
-		@method('DELETE')
-		<button class="btn btn-danger btn-delete">Supprimer</button>
-	</form>
+		<form class="inline-form" action="/environment/{{$environment->id}}" method="post">
+			@csrf
+			@method('DELETE')
+			<button class="btn btn-danger btn-delete">Supprimer</button>
+		</form>
 	</p>
 </div>
 @endsection

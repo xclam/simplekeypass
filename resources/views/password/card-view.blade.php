@@ -62,7 +62,7 @@
 			</div>
 			<div class="card-footer">
 				<?php if($pass->is_owner()): ?>
-					<a href="/password/{{$pass->id}}">Modifier</a>
+					<a href="/password/{{$pass->id}}">{{__('Modify')}}</a>
 				<?php endif; ?>
 			</div>
 		</div>
