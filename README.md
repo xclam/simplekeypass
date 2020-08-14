@@ -1,3 +1,7 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center">
+	<h1>Simple Keypass</h1>
+</p>
 
-Simple Keypass
+<p>
+	Manage your passwords and shared them with people of your choice.
+</p>
