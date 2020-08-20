@@ -40,13 +40,9 @@
 				
 				<div class="input-group mb-3">
 					
-					<div class="input-group-prepend">
-						<span class="input-group-text">Password</span>
-					</div>
+					<div class="input-group-prepend"><span class="input-group-text">Password</span></div>
 
-					<span type="text" class="form-control" id="copy-{{$pass->id}}" value="{{Illuminate\Support\Facades\Crypt::decryptString($pass->password)}}" style="transition: background-color ease-in 1s;">
-						{{Illuminate\Support\Facades\Crypt::decryptString($pass->password)}}
-					</span>
+					<span type="text" class="form-control" id="copy-{{$pass->id}}" value="{{Illuminate\Support\Facades\Crypt::decryptString($pass->password)}}" style="transition: background-color ease-in 1s;">{{Illuminate\Support\Facades\Crypt::decryptString($pass->password)}}</span>
 					
 					<div class="input-group-append">
 						<button class="btn btn-outline-secondary copy" data-copy="copy-{{$pass->id}}" type="button">

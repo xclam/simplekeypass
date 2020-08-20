@@ -42,14 +42,9 @@
 				
 				<div class="input-group mb-3">
 					
-					<div class="input-group-prepend">
-						<span class="input-group-text">Password</span>
-					</div>
+					<div class="input-group-prepend"><span class="input-group-text">Password</span></div>
 
-					<span type="text" class="form-control" id="copy-<?php echo e($pass->id); ?>" value="<?php echo e(Illuminate\Support\Facades\Crypt::decryptString($pass->password)); ?>" style="transition: background-color ease-in 1s;">
-						<?php echo e(Illuminate\Support\Facades\Crypt::decryptString($pass->password)); ?>
-
-					</span>
+					<span type="text" class="form-control" id="copy-<?php echo e($pass->id); ?>" value="<?php echo e(Illuminate\Support\Facades\Crypt::decryptString($pass->password)); ?>" style="transition: background-color ease-in 1s;"><?php echo e(Illuminate\Support\Facades\Crypt::decryptString($pass->password)); ?></span>
 					
 					<div class="input-group-append">
 						<button class="btn btn-outline-secondary copy" data-copy="copy-<?php echo e($pass->id); ?>" type="button">
