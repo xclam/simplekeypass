@@ -20,6 +20,7 @@
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
 </head>
 <body>
+<?php if(auth()->guard()->check()): ?>
 	<div class="container-fluid">
 		<div class="row flex-xl-nowrap">
 			
@@ -42,6 +43,7 @@
 						</ul>
 					</div>
 
+					
 					<div class="bd-toc-item">
 						<a class="bd-toc-link" href="<?php echo e(url('/')); ?>"><?php echo e(Auth::user()->name); ?></a>
 					</div>
@@ -56,6 +58,13 @@
 			
 		</div>
     </div>
+<?php else: ?>
+	<div class="container">
+		<main class="">
+				<?php echo $__env->yieldContent('content'); ?>
+			</main>
+	</div>
+<?php endif; ?>
 </body>
 </html>
 <?php /**PATH /var/workspace/simplekeypass/resources/views/layouts/app.blade.php ENDPATH**/ ?>

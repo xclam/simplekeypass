@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+@auth
 	<div class="container-fluid">
 		<div class="row flex-xl-nowrap">
 			
@@ -42,6 +43,7 @@
 						</ul>
 					</div>
 
+					
 					<div class="bd-toc-item">
 						<a class="bd-toc-link" href="{{ url('/') }}">{{ Auth::user()->name }}</a>
 					</div>
@@ -56,5 +58,12 @@
 			
 		</div>
     </div>
+@else
+	<div class="container">
+		<main class="">
+				@yield('content')
+			</main>
+	</div>
+@endauth
 </body>
 </html>
