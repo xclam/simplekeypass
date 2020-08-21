@@ -16,15 +16,21 @@ $("#share-with-nobody").on("click", function() {
 });
 
 $('.copy').on("click", function() {
-	var elt = "#" + $(this).attr('data-copy');
-	var $temp = $("<input>");
-	$("body").append($temp);
-	$temp.val($(elt).text()).select();
-	document.execCommand("copy");
-	$temp.remove();
+	var $elt = $("#" + $(this).attr('data-copy'));
+	// var $temp = $("<input>");
+	// $("body").append($temp);
+	// $elt.focus();
+	// $elt.select();
+	// $elt.setSelectionRange(0, 99999);
+	// document.execCommand("copy");
+	navigator.clipboard.writeText($elt.val());
 
-	$(elt).addClass('bg-info').delay(2000).queue(function(){
-		$(this).removeClass('bg-info');
-		$(this).dequeue();
-	});
 }); 
+
+$('.field-protected').on('focus', function(){
+	$(this).attr("type","text");
+});
+
+$('.field-protected').on('blur', function(){
+	$(this).attr("type","password");
+});

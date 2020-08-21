@@ -24,10 +24,7 @@
 						<span class="input-group-text">Login</span>
 					</div>
 
-					<span type="text" class="form-control" id="copy-login-<?php echo e($pass->id); ?>" style="transition: background-color ease-in 1s;">
-						<?php echo e($pass->login); ?>
-
-					</span>
+					<input type="text" class="form-control field" id="copy-login-<?php echo e($pass->id); ?>" value="<?php echo e($pass->login); ?>" readonly>
 					
 					<div class="input-group-append">
 						<button class="btn btn-outline-secondary copy" data-copy="copy-login-<?php echo e($pass->id); ?>" type="button">
@@ -44,7 +41,8 @@
 					
 					<div class="input-group-prepend"><span class="input-group-text">Password</span></div>
 
-					<span type="text" class="form-control" id="copy-<?php echo e($pass->id); ?>" value="<?php echo e(Illuminate\Support\Facades\Crypt::decryptString($pass->password)); ?>" style="transition: background-color ease-in 1s;"><?php echo e(Illuminate\Support\Facades\Crypt::decryptString($pass->password)); ?></span>
+					<input type="password" class="form-control field field-protected" id="copy-<?php echo e($pass->id); ?>" 
+						value="<?php echo e(Illuminate\Support\Facades\Crypt::decryptString($pass->password)); ?>" readonly>
 					
 					<div class="input-group-append">
 						<button class="btn btn-outline-secondary copy" data-copy="copy-<?php echo e($pass->id); ?>" type="button">
