@@ -9855,3 +9855,30 @@
 #15 /var/workspace/simplekeypass/public/index.php(60): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
 #16 {main}
 "} 
+[2020-08-28 16:47:13] local.ERROR: Command "cache" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    cache:forget
+    cache:table
+    config:cache
+    event:cache
+    route:cache
+    view:cache {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"cache\" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    cache:forget
+    cache:table
+    config:cache
+    event:cache
+    route:cache
+    view:cache at /var/workspace/simplekeypass/vendor/symfony/console/Application.php:670)
+[stacktrace]
+#0 /var/workspace/simplekeypass/vendor/symfony/console/Application.php(236): Symfony\\Component\\Console\\Application->find('cache')
+#1 /var/workspace/simplekeypass/vendor/symfony/console/Application.php(148): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /var/workspace/simplekeypass/vendor/laravel/framework/src/Illuminate/Console/Application.php(93): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/workspace/simplekeypass/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/workspace/simplekeypass/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
