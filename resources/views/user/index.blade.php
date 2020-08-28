@@ -11,13 +11,13 @@
 	
 	<table class="table table-sm table-hover table-light">
 	
-		<thead><tr><th>Nom</th><th>Nom</th><th>Email</th><th>Droits</th></tr></thead>
+		<thead><tr><th>Nom</th><th>Code</th><th>Email</th><th>Droits</th></tr></thead>
 	
 		<?php foreach($users as $user): ?>
 		
 			<tr class="clickable" data-href="/user/{{$user->id}}">
 				<td>{{$user->name}}</td>
-				<td>{{$user->name}}</td>
+				<td>{{$user->code}}</td>
 				<td>{{$user->email}}</td>
 				<td>{{$user->name}}</td>
 			</tr>

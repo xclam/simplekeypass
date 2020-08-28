@@ -54,20 +54,29 @@
 		
 		<?php if($password->is_owner()): ?>
 		<div class="mt-3">
-			<h3>Partager avec :</h3>
-			<label id="share-with-all">Tout cocher</label> / <label id="share-with-nobody">Tout décocher</label>
-			<table class="table table-sm" id="share-with">
-			<?php foreach($users as $user): ?>
-				<tr class="<?= $password->shared->contains($user->id) ? "table-light":"table-dark" ?>">
-					<td>
-						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" name="users[]" id="user-{{$user->id}}" value="{{$user->id}}" <?= $password->shared->contains($user->id) ? "checked":"" ?>/>
-							<label for="user-{{$user->id}}" class="custom-control-label">{{$user->gaia}} {{$user->name}}</label>
-						</div>
-					</td>
-				</tr>
-			<?php endforeach; ?>
-			</table>
+			<h3>{{ __('Share with') }} :</h3>
+			
+			<div class="row">
+			
+				<div class="col-6">
+					<h5>{{ __('Users') }}</h5>
+					<label id="share-with-all">Tout cocher</label> / <label id="share-with-nobody">Tout décocher</label>
+					<table class="table table-sm" id="share-with">
+					<?php foreach($users as $user): ?>
+						<tr class="<?= $password->shared->contains($user->id) ? "table-light":"table-dark" ?>">
+							<td>
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" name="users[]" id="user-{{$user->id}}" value="{{$user->id}}" <?= $password->shared->contains($user->id) ? "checked":"" ?>/>
+									<label for="user-{{$user->id}}" class="custom-control-label">{{$user->code}} ({{$user->name}})</label>
+								</div>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+					</table>
+				</div>
+				
+			</div>
+			
 		</div>
 				
 		<button class="btn btn-primary">Enregistrer</button>

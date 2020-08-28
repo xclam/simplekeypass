@@ -3,6 +3,38 @@
     
 	<div class="header-body"><h1><?php echo e(__('Modify user')); ?></h1></div>
 	
+	<form class="form" method="post" action="<?php echo e(route('user.update', $user->id)); ?>">
+		<?php echo csrf_field(); ?>
+		<?php echo method_field('PATCH'); ?>
+		
+		<div class="form-row">
+			<div class="form-group col">
+				<label for="name"><?php echo e(__('Name')); ?></label>
+				<input type="text" id="name" name="name" class="form-control" value="<?php echo e($user->name); ?>"/>
+			</div>
+			
+			<div class="form-group col">
+				<label for="code"><?php echo e(__('Code')); ?></label>
+				<input type="text" id="code" name="code" class="form-control" value="<?php echo e($user->code); ?>"/>
+			</div>
+		</div>
+		
+		<div class="form-row">
+			<div class="form-group col">
+				<label for="email"><?php echo e(__('Email')); ?></label>
+				<input type="text" id="email" name="email" class="form-control" value="<?php echo e($user->email); ?>"/>
+			</div>
+		</div>
+		
+		<div class="form-row">
+			<div class="form-group col">
+				<label for="password"><?php echo e(__('Change password')); ?></label>
+				<input type="text" id="password" name="password" class="form-control" />
+			</div>
+		</div>
+
+		<button class="btn btn-primary"><?php echo e(__('Save')); ?></button>
+	</form>
 
 	
 </div>
